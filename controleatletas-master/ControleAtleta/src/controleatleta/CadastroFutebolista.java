@@ -67,13 +67,13 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jTextFieldGolsPro.setText("0");
         jTextFieldTimeAtual.setText(null);
         jTextFieldQualidades.setText(null);
-        jTextFieldTimesAnteriores.setText("0");
+        jTextFieldTimesAnteriores.setText(null);
         telefonesListModel.clear();
         premiacaoListModel.clear();
         jComboBoxSexo.setSelectedIndex(0);
         jComboBox1.setSelectedIndex(0);
         jComboBoxPernaBoa.setSelectedIndex(0);
-        this.atualizarCategoriasIdade();
+        //this.atualizarCategoriasIdade();
     }
 
     private void preencherCampos() {
@@ -189,10 +189,8 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 return false;
             }
         }
-        try {
-            Double.parseDouble(jTextFieldPosicao.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Posição' é inválido.");
+        if(jTextFieldPosicao.getText().trim().length() == 0) {
+            this.exibirInformacao("O valor do campo 'Posicao' não foi informado.");
             jTextFieldPosicao.requestFocus();
             return false;
         }
@@ -217,24 +215,18 @@ public class CadastroFutebolista extends javax.swing.JFrame {
             jTextFieldGolsPro.requestFocus();
             return false;
         }
-        try {
-            Integer.parseInt(jTextFieldTimeAtual.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Time Atual' é inválido.");
+        if(jTextFieldTimeAtual.getText().trim().length() == 0) {
+            this.exibirInformacao("O valor do campo 'Time Atual' não foi informado.");
             jTextFieldTimeAtual.requestFocus();
             return false;
         }
-        try {
-            Integer.parseInt(jTextFieldQualidades.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Qualidades' é inválido.");
+        if(jTextFieldQualidades.getText().trim().length() == 0) {
+            this.exibirInformacao("O valor do campo 'Qualidades' não foi informado.");
             jTextFieldQualidades.requestFocus();
             return false;
         }
-        try {
-            Integer.parseInt(jTextFieldTimesAnteriores.getText());
-        } catch (Exception ex) {
-            this.exibirInformacao("O valor do campo 'Times Anteriores' é inválido.");
+        if(jTextFieldTimesAnteriores.getText().trim().length() == 0) {
+            this.exibirInformacao("O valor do campo 'Times Anteriores' não foi informado.");
             jTextFieldTimesAnteriores.requestFocus();
             return false;
         }
@@ -399,18 +391,18 @@ public class CadastroFutebolista extends javax.swing.JFrame {
     }
 
     private void atualizarCategoriasIdade() {
-        char categoria;
+        char categorias;
         switch (jComboBox1.getSelectedIndex()) {
             case CATEGORIA_AMADOR_INDICE:
-                categoria = CATEGORIA_AMADOR_VALOR;
+                categorias = CATEGORIA_AMADOR_VALOR;
                 break;
             case CATEGORIA_PROFISSIONAL_INDICE:
-                categoria = CATEGORIA_PROFISSIONAL_VALOR;
+                categorias = CATEGORIA_PROFISSIONAL_VALOR;
                 break;
             default:
                 return;
         }
-        jTextFieldCategoriasIdade.setText(Futebolista.obterCategoriasIdade(categoria, Integer.parseInt(jTextFieldIdade.getText())));
+        jTextFieldCategoriasIdade.setText(Futebolista.obterCategoriasIdade(categorias, Integer.parseInt(jTextFieldIdade.getText())));
     }
 
     @SuppressWarnings("unchecked")
