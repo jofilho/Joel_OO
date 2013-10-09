@@ -71,7 +71,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         telefonesListModel.clear();
         premiacaoListModel.clear();
         jComboBoxSexo.setSelectedIndex(0);
-        jComboBox1.setSelectedIndex(0);
+        jComboBoxCategorias.setSelectedIndex(0);
         jComboBoxPernaBoa.setSelectedIndex(0);
         //this.atualizarCategoriasIdade();
     }
@@ -132,10 +132,10 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
         switch (umFutebolista.getCategorias()) {
             case CATEGORIA_AMADOR_VALOR:
-                jComboBox1.setSelectedIndex(CATEGORIA_AMADOR_INDICE);
+                jComboBoxCategorias.setSelectedIndex(CATEGORIA_AMADOR_INDICE);
                 break;
             case CATEGORIA_PROFISSIONAL_VALOR:
-                jComboBox1.setSelectedIndex(CATEGORIA_PROFISSIONAL_INDICE);
+                jComboBoxCategorias.setSelectedIndex(CATEGORIA_PROFISSIONAL_INDICE);
                 break;
         }
 
@@ -270,7 +270,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jButtonAdicionarPremiacao.setEnabled(modoAlteracao);
         jButtonRemoverPremiacao.setEnabled(modoAlteracao);
         jComboBoxSexo.setEnabled(modoAlteracao);
-        jComboBox1.setEnabled(modoAlteracao);
+        jComboBoxCategorias.setEnabled(modoAlteracao);
         jComboBoxPernaBoa.setEnabled(modoAlteracao);
         jTableListaFutebolista.setEnabled(modoAlteracao == false);
     }
@@ -349,7 +349,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                 break;
         }
 
-        switch (jComboBox1.getSelectedIndex()) {
+        switch (jComboBoxCategorias.getSelectedIndex()) {
             case CATEGORIA_AMADOR_INDICE:
                 umFutebolista.setCategorias(CATEGORIA_AMADOR_VALOR);
                 break;
@@ -392,7 +392,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
 
     private void atualizarCategoriasIdade() {
         char categorias;
-        switch (jComboBox1.getSelectedIndex()) {
+        switch (jComboBoxCategorias.getSelectedIndex()) {
             case CATEGORIA_AMADOR_INDICE:
                 categorias = CATEGORIA_AMADOR_VALOR;
                 break;
@@ -479,7 +479,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
         jListPremiacoes = new javax.swing.JList();
         jButtonAdicionarPremiacao = new javax.swing.JButton();
         jButtonRemoverPremiacao = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        jComboBoxCategorias = new javax.swing.JComboBox();
         jButtonAlterar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
@@ -805,10 +805,10 @@ public class CadastroFutebolista extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Amador", "Profissional" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxCategorias.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Amador", "Profissional" }));
+        jComboBoxCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jComboBoxCategoriasActionPerformed(evt);
             }
         });
 
@@ -831,7 +831,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                     .addComponent(jLabelTotalDesistencias))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, 0, 299, Short.MAX_VALUE)
+                    .addComponent(jComboBoxCategorias, 0, 299, Short.MAX_VALUE)
                     .addComponent(jTextFieldNumeroCamisa, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                     .addComponent(jTextFieldGolsContra, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                     .addComponent(jTextFieldGolsPro, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
@@ -861,7 +861,7 @@ public class CadastroFutebolista extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCategorias)
                             .addComponent(jLabelPremiacoes)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCategoriasIdade)
@@ -1134,9 +1134,9 @@ private void jComboBoxPernaBoaActionPerformed(java.awt.event.ActionEvent evt) {/
 // TODO add your handling code here:
 }//GEN-LAST:event_jComboBoxPernaBoaActionPerformed
 
-private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+private void jComboBoxCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoriasActionPerformed
 // TODO add your handling code here:
-}//GEN-LAST:event_jComboBox1ActionPerformed
+}//GEN-LAST:event_jComboBoxCategoriasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarPremiacao;
@@ -1149,7 +1149,7 @@ private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     private javax.swing.JButton jButtonRemoverPremiacao;
     private javax.swing.JButton jButtonRemoverTelefone;
     private javax.swing.JButton jButtonSalvar;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBoxCategorias;
     private javax.swing.JComboBox jComboBoxEstado;
     private javax.swing.JComboBox jComboBoxPernaBoa;
     private javax.swing.JComboBox jComboBoxSexo;
